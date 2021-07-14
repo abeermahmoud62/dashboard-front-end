@@ -1,36 +1,26 @@
 import React , {useState} from 'react'
-import {useDispatch} from "react-redux"
 import styled from 'styled-components'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import {Link} from "react-router-dom"
+import {Link } from "react-router-dom"
 import Image from '../pics/dash2-.jpg'
-import { login } from "../actions/userActions";
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const dispatch = useDispatch();
-    function handleSubmit(event) {
-        event.preventDefault();
-        dispatch(login(email,password))
-    }
-    return (
-        <Wrapper>
-            <img className="split left" src={Image} alt="vatrina"/>
-            <div className="split right">
-                <h2>Login</h2>
-                <Form onSubmit={handleSubmit}>
+export default function Login() {
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const LoginForm = () => (
+        <Form>
                     <Form.Group size="lg" controlId="email">
-                        <Form.Label className="label">Email</Form.Label>
+                        <Form.Label className="label">Username</Form.Label>
                         <Form.Control
                             autoFocus
-                            type="email"
-                            value={email}
+                            type="username"
+                            value={username}
                             required
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setUserName(e.target.value)}
                             className="form-control"
-                            placeholder="enter email"
+                            placeholder="enter username"
                         />
+                        
                     </Form.Group>
                     <Form.Group size="lg" controlId="password">
                         <Form.Label className="label" >Password</Form.Label>
@@ -42,18 +32,32 @@ function Login() {
                             className="form-control"
                             placeholder="enter password"
                             />
+                            
                     </Form.Group>
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Row>
                             <Form.Check className="checkbox" type="checkbox" label="Remember Me" />
-                            <Link to="/login-details" className="forget">Forget Login Details?</Link>
                         </Form.Row>
                     </Form.Group>
                     <Link to="/">
-                        <Button block size="lg" type="submit" className="btn btn-grad">Login</Button>
+                        <Button block  size="lg" type="submit" className="btn btn-grad">Login</Button>
                     </Link>
                 </Form>
+    );
+    
+    
+    return (
+        
+        <Wrapper>
+            
+            <img className="split left" src={Image} alt="vatrina"/>
+            <div className="split right">
+                <h2>Login</h2>
+                {/* {showLoading()} */}
+                {/* {showError()} */}
+                {LoginForm()}
             </div>
+            
         </Wrapper>
     );
 };
@@ -138,6 +142,3 @@ h2{
 
 
 `
-
-export default Login
-

@@ -3,51 +3,42 @@ import styled from 'styled-components'
 import {Link} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import SearchIcon from '@material-ui/icons/Search';
-// import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Avatar from "../pics/img_avatar.png";
 function Header() {
     return (
-        <Wrapper>
-            <div className="header">
-                <div className="header_input">
+        <Wrapper className="navbar navbar-expand-xl header">
+            <ul className="navbar-nav d-flex">
+                <li className="nav-item header_input">
                     <SearchIcon className="search_icon" />
                     <input type="text" placeholder="Search" className="form_control"/>
-                </div>
-                <div className="header_right">
-                    {/* <div>
-                        <NotificationsNoneIcon  className="header_icon"/>
-                    </div> */}
-                    <div className="header_icon">
-                        <img className="avatar" src={Avatar} alt="avatar"/>
-                    </div>
-                    <Link to="/profile" className="link">
+                </li>
+                <li className="nav-item first" >
                         <div className="header_icon profile_name">
-                            John Doe
+                            welcome,Abeermahmoud62
                         </div>
-                    </Link>
-                    <Link to="/login">
+                </li>
+                <li className="nav-item">
+                    <Link to="/login" className="nav-link">
                         <ExitToAppIcon className="header_icon" size={18}/>
                     </Link>
-                    
-                </div>
-            </div>
+                </li>
+            </ul>
         </Wrapper>
     )
 }
 const Wrapper = styled.header`
-.header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background-color:#ffffff;
-    padding:20px;
+
     box-shadow: var(--light-shadow);
     transition: var(--transition);
     margin-bottom:2rem;
+    padding-top:1rem;
+
+.first{
+    margin-left:24rem;
+    margin-right:1rem;
+    margin-top:8px;
+    color : #000;
 }
-
-
 .header_input{
     display:flex;
     align-items:center;
@@ -70,16 +61,13 @@ input:focus{
     color:#4da6ff;
     margin-left:5px;
 }
-.header_right{
-    display:flex;
-    align-items:center;
-}
+
 .link{
     color:#4da6ff;
     text-decoration:none;
 }
+
 .header_icon{
-    margin-right:15px;
     color:#4da6ff;
     cursor:pointer;
 }

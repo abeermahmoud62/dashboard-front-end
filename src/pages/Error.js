@@ -1,13 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
 import styled from "styled-components"
 export default function Error() {
     return (
     <Wrapper>
-        <Header />
-        <Sidebar/>
         <main className="error-page section">
             <div className="error-container">
                 <h1>404</h1>

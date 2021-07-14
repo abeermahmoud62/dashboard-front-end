@@ -10,38 +10,27 @@ import Orders from "./pages/Orders"
 import Products from "./pages/Products"
 import Customers from "./pages/Customers"
 import Error from "./pages/Error"
-
-
+import Header from "./components/Header"
+import Sidebar from "./components/Sidebar"
+import Reviews from './pages/Reviews'
 function App() {
   return (
     <Router>
-    <div className="app">
       <Switch>
-        <Route exact path="/">
-          <Dashboard />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/customers">
-          <Customers />
-        </Route>
-        
-        <Route path="/orders">
-          <Orders />
-        </Route>
-        <Route path="/products">
-          <Products />
-        </Route>
-        <Route path="/settings">
-          {/* <Settings /> */}
-        </Route>
-        <Route path="*">
-          <Error></Error>
-        </Route>
+        <Route path="/login" exact component={Login} />
+        <Route path="/" exact><Header />
+        <Sidebar /><Dashboard /></Route>
+        <Route path="/customers" exact><Header />
+        <Sidebar /><Customers /></Route>
+        <Route path="/orders" exact ><Header />
+        <Sidebar /><Orders/></Route>
+        <Route path="/products" exact><Header />
+        <Sidebar /><Products/></Route>
+        <Route path="/Reviews" exact><Header />
+        <Sidebar /><Reviews/></Route>
+        <Route path="*"><Header />
+        <Sidebar /><Error/></Route>
       </Switch>
-      
-    </div>
     </Router>
     
   );

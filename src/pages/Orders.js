@@ -1,83 +1,11 @@
 import React from 'react'
 import styled from "styled-components"
-import Sidebar from "../components/Sidebar"
-import  Header   from "../components/Header"
 import Table from 'react-bootstrap/Table'
 import { Link } from 'react-router-dom'
-import image1 from "../pics/0_.png"
-import image3 from "../pics/75_.png"
-import image4 from "../pics/50_.png"
-import image5 from "../pics/25_.png"
-import image2 from "../pics/75_.png"
-
-const columns = [
-    {
-        id: '1',
-        name: 'john due',
-        date: '17-july-2021',
-        address: 'Mansoura',
-        contact: '01234567891',
-        status:image1,
-        payment:'on delivery',
-        total:'500 $',
-    },
-    {
-        id: '2',
-        name: 'john due',
-        date: '17-july-2021',
-        address: 'Mansoura',
-        contact: '01234567891',
-        status:image2,
-        payment:'on delivery',
-        total:'500 $',
-    },
-    {
-        id: '3',
-        name: 'john due',
-        date: '17-july-2021',
-        address: 'Mansoura',
-        contact: '01234567891',
-        status:image3,
-        payment:'on delivery',
-        total:'500 $',
-    },
-    {
-        id: '4',
-        name: 'john due',
-        date: '17-july-2021',
-        address: 'Mansoura',
-        contact: '01234567891',
-        status:image4,
-        payment:'on delivery',
-        total:'500 $',
-    },
-    {
-        id: '5',
-        name: 'john due',
-        date: '17-july-2021',
-        address: 'Mansoura',
-        contact: '01234567891',
-        status:image5,
-        payment:'on delivery',
-        total:'500 $',
-    },
-    {
-        id: '6',
-        name: 'john due',
-        date: '17-july-2021',
-        address: 'Mansoura',
-        contact: '01234567891',
-        status:image3,
-        payment:'on delivery',
-        total:'500 $',
-    },
-    ];
+import data from '../data'
 function Orders() {
     return(
         <Wrapper>
-            <Header/>
-            <Sidebar/>
-            
             <div className="title" >
                 <h2><Link className="link" to="/">Dashboard</Link> | Orders</h2>
             </div>
@@ -96,8 +24,7 @@ function Orders() {
                         </tr>
                     </thead>
                     <tbody>
-                        
-                            {columns.map((column) => {
+                            {data.orders.map((column) => {
                                 return(
                                     <tr>
                                         <td>{column.id}</td>
@@ -108,13 +35,11 @@ function Orders() {
                                         <td>{column.payment}</td>
                                         <td>{column.contact}</td>
                                         <td><img src={column.status} alt="progress"/></td>
-                                        
                                     </tr>
                                 )
                             })}
-                        
                     </tbody>
-                    </Table>
+                </Table>
             </article>
         </Wrapper>
     )
@@ -126,25 +51,26 @@ function Orders() {
         margin-top:20px;
         display:flex;
         flex-wrap: wrap;
-        box-shadow: var(--light-shadow);
+        box-shadow: var(--dark-shadow);
         transition: var(--transition);
     }
     tbody{
-        background-color: #e6f0ff;
+        background-color: #fff;
         color:var(--clr-blue-2);
     }
     thead{
-        color:#003d99;
+        color:hsl(204, 100%, 45%);
         background-color: #ffffff;
     }
     h2{
         margin-left:209px;
         margin-top:20px;
+        color:hsl(210, 22%, 49%)
     }
     
     .link{
     text-decoration:none !important;
-    color : var(--clr-blue-1);
+    color : var(--clr-blue-1) !important;
     }
     .title{
         background-color: hsl(204, 100%, 90%);

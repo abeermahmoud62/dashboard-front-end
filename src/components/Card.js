@@ -1,52 +1,98 @@
 import React from 'react'
 import styled from "styled-components"
-function Card ({ icon, label, value }) {
-    return (
+
+function Card({title , number , icon ,color }){
+    return(
         <Wrapper>
-            <div className="item">
-                <div className="icons">
-                    <span className="icon">{icon}</span>
-                </div>
-                <div>
-                    <h2>{value}</h2>
-                    <p>{label}</p>
+            <div className="card-body">
+                <div className="row">
+                    <div className="col">
+                        <h5 className="card-title text-muted mb-0">{title}</h5>
+                        <p>(Last Month)</p>
+                        <p className="h4 font-weight-bold mb-0">{number}</p>
+                    </div>
+                    <div className="col-auto">
+                        {/* <div className="icon icon-shape bg-primary text-white rounded-circle shadow"> */}
+                        <span className={color}>
+                            {icon}
+                        </span>
+                    </div>
                 </div>
             </div>
-        </Wrapper>
-    );
-    };
-const Wrapper = styled.article`
-.item{
-    display:grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 3rem;
-    border-radius: 5px;
-    border:1px solid black;
-    box-shadow: var(--dark-shadow);
-    transition: var(--transition);
-    /* padding: 1rem 2rem; */
-    background-color:#ffffff;
+    </Wrapper>
+    )
 }
-.icons{
-    border-radius:50%;
-    width:4rem;
-    height:4rem;
-    background-color:#1a75ff;
+const Wrapper = styled.div`
+.card-body {
+    padding: 1rem;
+    flex: 1 1 auto;
 }
-.icon{
-    color:black;
-    font-size: 2.5rem;
-    align-items:center;
+.row {
+    display: flex;
+    margin-right: -15px;
+    margin-left: -15px;
+    flex-wrap: wrap ;
+    margin-top:10px;
+    
 }
-h2 {
-    margin-bottom: 0;
-    letter-spacing: 0;
-    place-items: right;
-}
-p {
-    margin-bottom: 0;
-    text-transform: capitalize;
-}
-`
 
-    export default Card
+
+.col,
+.col-auto,
+.col-lg-6,
+.col-md-3,
+.col-xl-6 {
+    position: relative;
+    width: 50%;
+    min-height: 1px;
+    padding-right: 15px;
+    /* padding-left: 15px; */
+    
+    }
+.col {
+    max-width:100%;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+.card-title {
+    margin-bottom: 1.3rem;
+}
+.col-auto {
+    width: auto;
+    max-width: none;
+    flex: 0 0 auto;
+}
+
+.icons{
+    align-items:center !important;
+}
+@media (min-width: 992px) {
+.col-lg-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+    }
+}
+@media (min-width: 1200px) {
+.col-md-2 {
+    max-width: 25%;
+    flex: 0 0 25%;
+}
+.col-xl-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+}
+}
+span{
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    }
+.colors{
+    background-color: #0099ff;
+}
+
+
+`
+export default Card

@@ -6,11 +6,11 @@ function Modals(){
     const [show, setShow] = useState(false);
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
-    const [price, setPrice] = useState(false);
-    const [category, setCategory] = useState(false);
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    
     return(
         <Wrapper>
                 <Button variant="primary" onClick={handleShow}>
@@ -80,7 +80,7 @@ function Modals(){
                         <Button variant="secondary" onClick={handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary" onClick={handleClose}>
+                        <Button variant="primary" onClick={  handleClose }>
                             Save Changes
                         </Button>
                     </Modal.Footer>

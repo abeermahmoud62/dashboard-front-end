@@ -1,15 +1,11 @@
 import React from 'react'
 import styled from "styled-components"
-import Header from "../components/Header"
-import Sidebar from "../components/Sidebar"
 import Cards from "../components/Cards"
 import Chart from "../components/Chart"
 
 function Dashboard() {
     return (
         <Wrapper>
-            <Header />
-            <Sidebar />
             <div className="title" >
                 <h2>Dashboard |</h2>
             </div>
