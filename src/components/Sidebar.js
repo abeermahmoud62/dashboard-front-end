@@ -2,12 +2,21 @@ import React from 'react'
 import SidebarRow from "./SidebarRow";
 import styled from "styled-components"
 import Logo from "../pics/Untitled-3.png"
-import {NavLink} from "react-router-dom"
+import {NavLink } from "react-router-dom"
 import { MdDashboard } from "react-icons/md"
 import { GiCube } from "react-icons/gi"
 import {FaShoppingCart} from 'react-icons/fa';
 import { IoIosPerson } from "react-icons/io";
-import { BsFillGearFill } from "react-icons/bs";
+import { FaQuoteLeft } from "react-icons/fa";
+// const isActive = ( history , path ) => {
+//     if(history.location.pathname === path){
+//         return {backgroundColor:"#fffffff"}
+//     }
+//     else {
+//         return {backgroundColor:"#0099ff"}
+//     }
+// }
+
 function Sidebar() {
     return (
         <Wrapper>
@@ -15,12 +24,11 @@ function Sidebar() {
                 <div className="sidebar_header">
                     <img className="logo" src={Logo} alt="logo"/>
                 </div>
-                
-                    <NavLink className="link" to="/"><SidebarRow  Icon={ MdDashboard } title="Dashboard"/></NavLink>
+                    <NavLink className="link" to="/" ><SidebarRow  Icon={ MdDashboard } title="Dashboard"/></NavLink>
                     <NavLink className="link" to="/products"><SidebarRow Icon={ GiCube }  title="Products" /></NavLink>
                     <NavLink className="link" to="/orders"><SidebarRow Icon={ FaShoppingCart } title="Orders" /></NavLink>
                     <NavLink className="link" to="/customers"><SidebarRow Icon={ IoIosPerson } title="Customers" /></NavLink>
-                    <NavLink className="link" to="/settings"><SidebarRow Icon={ BsFillGearFill } title="Settings" /></NavLink>
+                    <NavLink className="link" to="/Reviews"><SidebarRow Icon={ FaQuoteLeft } title="Reviews" /></NavLink>
             </div>
         </Wrapper>
     )

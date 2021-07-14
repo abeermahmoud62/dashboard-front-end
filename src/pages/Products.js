@@ -1,24 +1,20 @@
 import React from 'react'
-import  Header   from "../components/Header"
 import styled from "styled-components"
-import Sidebar from "../components/Sidebar"
-import Product from "../components/Product"
-
+import Product from "./Product"
 import Modal from "../components/Modal"
 import { Link } from 'react-router-dom'
 import data from '../data'
-function Products({removeProduct}) {
+function Products() {
+    
     return(
         <Wrapper>
-            <Header />
-            <Sidebar/>
             <div className="title" >
                 <h2><Link className="link" to="/">Dashboard</Link> | Products</h2>
             </div>
             <Modal/>
             <article className="container-fluid">
                 {data.products.map((product)=>{
-                    return <Product key={product.id}  {...product} removeProduct={removeProduct} />
+                    return <Product key={product.id}  {...product}  />
                 })
                 }
             </article>
@@ -67,6 +63,7 @@ const Wrapper = styled.div`
     h2{
         margin-left:209px;
         margin-top:20px;
+        color:hsl(210, 22%, 49%);
     }
     .link{
     text-decoration:none !important;
